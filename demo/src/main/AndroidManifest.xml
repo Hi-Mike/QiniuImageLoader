@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.liulishuo.qiniuimageloader.demo">
+          package="win.himike.qiniuimageloader.test">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
 
-
+        <activity android:name=".RecyclerActivity" />
     </application>
 
 </manifest>

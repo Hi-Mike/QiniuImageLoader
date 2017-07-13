@@ -1,18 +1,15 @@
-package com.liulishuo.qiniuimageloader.demo;
+package win.himike.qiniuimageloader.test;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
-import com.liulishuo.qiniuimageloader.utils.PicassoLoader;
+import win.himike.qiniuimageloader.glide.GlideLoader;
 
-/**
- * Created by Jacksgong on 12/13/15.
- */
+
 public class MainActivity extends AppCompatActivity {
     private static String MOCK_DATA_URL = "http://7xjww9.com1.z0.glb.clouddn.com/20130221114001385.jpg";
 
@@ -22,29 +19,33 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         assignViews();
 
-        PicassoLoader.createLoader(image1, MOCK_DATA_URL)
+        GlideLoader.setGlobalPlaceHolder(0, R.drawable.emo_im_crying);
+        GlideLoader.setDefaultAnimPlaceHolder(R.drawable.anim_place_holder);
+
+        GlideLoader.createLoader(image1, MOCK_DATA_URL)
+                .scaleType(ImageView.ScaleType.CENTER_CROP)
+                .fillWidth()
+                .clickReload()
                 .attach();
 
-        PicassoLoader.createLoader(image2, MOCK_DATA_URL)
-                .centerCrop()
+        GlideLoader.createLoader(image2, MOCK_DATA_URL)
+                .scaleType(ImageView.ScaleType.CENTER_CROP)
                 .wR(R.dimen.image_2_width)
                 .attach();
 
-        PicassoLoader.createLoader(image3, MOCK_DATA_URL)
+        GlideLoader.createLoader(image3, MOCK_DATA_URL)
                 .size(dp2px(250))
                 .addOpBlur(40, 20)
                 .attach();
 
-        PicassoLoader.createLoader(image4, MOCK_DATA_URL)
+        GlideLoader.createLoader(image4, MOCK_DATA_URL)
                 .w(dp2px(270))
                 .addOpRotate(30)
                 .attach();
 
-        PicassoLoader.createLoader(image5, MOCK_DATA_URL)
+        GlideLoader.createLoader(image5, MOCK_DATA_URL)
                 .halfScreenW()
                 .attach();
-
-
     }
 
     public int dp2px(float dpValue) {
@@ -75,18 +76,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_github:
-                openGitHub();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.recycler) {
+            startActivity(new Intent(MainActivity.this, RecyclerActivity.class));
         }
-    }
-
-    private void openGitHub() {
-        Uri uri = Uri.parse(getString(R.string.app_github_url));
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-        startActivity(intent);
+        return super.onOptionsItemSelected(item);
     }
 }

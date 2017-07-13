@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/QiniuImageLoader.iml" filepath="$PROJECT_DIR$/QiniuImageLoader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/utils-glide/utils-glide.iml" filepath="$PROJECT_DIR$/utils-glide/utils-glide.iml" />
+      <module fileurl="file://$PROJECT_DIR$/utils-picasso/utils-picasso.iml" filepath="$PROJECT_DIR$/utils-picasso/utils-picasso.iml" />
+    </modules>
+  </component>
+</project>
